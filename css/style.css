@@ -8,6 +8,7 @@ body {
     font-family: 'Rubik', sans-serif;
     max-width: 100%;
     font-size: 20px;
+    background-color: lightgrey;
 }
 
 .container {
@@ -15,12 +16,26 @@ body {
     height: 100vh;
 }
 
-.header {
+.header-top {
     display: flex;
     align-items: flex-end;
     height: 70px;
     color: skyblue;
     font-size: 40px;
+    background-color: white;
+}
+
+.header-bottom {
+    width: 100%;
+    background-color: rgb(67, 149, 182);
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-bottom > select {
+    margin-left: 10px;
 }
 
 .icons {
@@ -41,6 +56,7 @@ body {
     -webkit-box-shadow: 0px 3px 16px 7px rgba(0,0,0,0.72); 
     box-shadow: 0px 3px 16px 7px rgba(0,0,0,0.72);
     border-radius: 20px;
+    background-color: white;
 }
 
 .icons > div > i {

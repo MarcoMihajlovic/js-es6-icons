@@ -141,5 +141,41 @@ $(document).ready(function() {
 
     });
 
-    console.log(array);
+    const select = $('#type');
+     
+    //Vado a popolare la mia select con le option
+    types.forEach((element) => {
+        select.append(`<option value="${element}">${element}</option>`);
+    });
+
+    //Collego il type con il filtro
+    select.change({containerIcons}, function (event) {
+        const containerIcons = event.data.containerIcons;
+        const selection = $(this).val();
+        
+        //filtro gli elementi che mi servono per type
+        const filtered = array.filter((element) => {
+            return element.type == selection;
+        });
+
+        containerIcons.html('');
+
+        //Vado a ciclare sull'array filtrato per type
+        filtered.forEach((element) => {
+            const {name, prefix, family, color} = element;
+    
+            const elementHTML = `
+            <div>
+                <i style="color:${color};" class ="${family} ${prefix}${name}"></i>
+                <div class ="name">${name.toUpperCase()}</div>
+            </div>
+            `
+    
+            containerIcons.append(elementHTML);
+    
+        });
+
+
+    });
+
 })
