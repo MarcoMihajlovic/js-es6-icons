@@ -98,21 +98,48 @@ $(document).ready(function() {
         }
     ];
 
+    const colors = [
+        'blue',
+        'orange',
+        'purple'
+    ]
+
+    //Vado a prendere i type che mi serviranno per colorare le icone
+    const types = [];
+
+    
+    array.forEach((element) => {
+        if(!types.includes(element.type)) {
+            types.push(element.type);
+        }
+    });
+
+    //aggiungo il colore in base all'indice del type
+    array.map((element) => {
+        const myType = types.indexOf(element.type);
+        if(myType != -1) {
+            element.color = colors[myType];
+        }
+    })
+
     const containerIcons = $('.icons');
     
     //Popolo la sezione icons del mio HTML
     containerIcons.html('');
 
     array.forEach((element) => {
-        const {name, prefix, type,family} = element;
+        const {name, prefix, family, color} = element;
 
         const elementHTML = `
         <div>
-            <i class ="${family} ${prefix}${name}"></i>
+            <i style="color:${color};" class ="${family} ${prefix}${name}"></i>
             <div class ="name">${name.toUpperCase()}</div>
         </div>
         `
 
         containerIcons.append(elementHTML);
+
     });
+
+    console.log(array);
 })
